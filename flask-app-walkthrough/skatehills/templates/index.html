@@ -33,8 +33,9 @@
           >
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('events')}}">Events</a></li>
-            <li><a href="{{ url_for('index')}}">Add Event</a></li>
-            <li><a href="{{ url_for('index')}}">Organisers</a></li>
+            <li><a href="">Add Event</a></li>
+            <li><a href="{{ url_for('hills')}}">Hills</a></li>
+            <li><a href="{{ url_for('add_hills')}}">Add Hill</a></li>
             <li>
               <a
                 class="dark-toggle"
@@ -49,9 +50,11 @@
       </nav>
 
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('index')}}">Events</a></li>
-        <li><a href="{{ url_for('index')}}">Add Event</a></li>
-        <li><a href="{{ url_for('index')}}">Organisers</a></li>
+        <li><a href="{{ url_for('events')}}">Events</a></li>
+        <li><a href="">Add Event</a></li>
+        <li><a href="{{ url_for('hills')}}">Hills</a></li>
+        <li><a href="{{ url_for('add_hills')}}">Add Hill</a></li>
+        <!-- CODE PEN FROM: https://codepen.io/j_holtslander/pen/MRbpLX -->
         <li>
           <a
             class="dark-toggle"

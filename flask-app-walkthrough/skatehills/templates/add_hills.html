@@ -1,0 +1,37 @@
+{% extends "index.html" %} {% block content %}
+<h1>Add a Hill</h1>
+<form
+  action=""
+  method="post"
+  action="{{ url_for(
+    'add_hills',
+)}}"
+>
+  <div class="input-field">
+    <input type="text" name="name" id="name" required />
+    <label for="name">Name</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="start_location" id="start_location" required />
+    <label for="start_location">Start Location GPS</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="end_location" id="end_location" required />
+    <label for="end_location">End Location GPS</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="country" id="country" required />
+    <label for="country">Country</label>
+  </div>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Image</span>
+      <input type="file" name="image" id="image" />
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" />
+    </div>
+  </div>
+  <button class="btn">Add Hill</button>
+</form>
+{% endblock %}

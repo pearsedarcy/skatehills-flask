@@ -1,22 +1,18 @@
-{% extends "index.html" %}
-
-{% block content %}
-  <h1>Events</h1>
-  <ul class="collection
-
-
-    {% for event in events %}
-        <li class="collection-item">
-        <div>
-            {{ event.name }}
-            <a href="{{ url_for('event', event_id=event.id) }}" class="secondary-content"
-            ><i class="material-icons">send</i></a
-            >
-        </div>
-        </li>
-    {% endfor %}
-
-    </ul>
+{% extends "index.html" %} {% block content %}
+<h1>Events</h1>
+<ul class="collection">
+  {{% for event in events %}}
+  <li class="collection-item">
+    <div>
+      {{ event.name }}
+      <a
+        href="{{ url_for('event', event_id=event.id) }}"
+        class="secondary-content"
+        ><i class="material-icons">send</i></a
+      >
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
-

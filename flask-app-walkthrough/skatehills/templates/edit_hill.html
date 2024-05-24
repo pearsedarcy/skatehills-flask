@@ -1,0 +1,55 @@
+{% extends "index.html" %} {% block content %}
+<h1>Edit {{ hill.name }}</h1>
+<form
+  action=""
+  method="post"
+  action="{{ url_for(
+  'edit_hill', id=hill.id
+)}}"
+>
+  <div class="input-field">
+    <input type="text" name="name" id="name" required value="{{ hill.name }}" />
+    <label for="name">Name</label>
+  </div>
+  <div class="input-field">
+    <input
+      type="text"
+      name="start_location"
+      id="start_location"
+      required
+      value="{{ hill.start_location }}"
+    />
+    <label for="start_location">Start Location GPS</label>
+  </div>
+  <div class="input-field">
+    <input
+      type="text"
+      name="end_location"
+      id="end_location"
+      required
+      value="{{ hill.end_location }}"
+    />
+    <label for="end_location">End Location GPS</label>
+  </div>
+  <div class="input-field">
+    <input
+      type="text"
+      name="country"
+      id="country"
+      required
+      value="{{ hill.country }}"
+    />
+    <label for="country">Country</label>
+  </div>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Image</span>
+      <input type="file" name="image" id="image" />
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" value="{{ hill.image }}" />
+    </div>
+  </div>
+  <button class="btn">Edit Hill</button>
+</form>
+{% endblock %}

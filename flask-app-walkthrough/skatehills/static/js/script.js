@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let sidenav = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sidenav);
 });
-  
+
+
+// CODE PEN FROM: https://codepen.io/j_holtslander/pen/MRbpLX
 // SIDENAV
 $(document).ready(function(){
   $('.sidenav').sidenav();
