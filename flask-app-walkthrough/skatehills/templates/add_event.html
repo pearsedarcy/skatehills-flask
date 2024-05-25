@@ -1,0 +1,68 @@
+<!--
+This HTML template file is used to render a form for adding a new event. It extends the "index.html" template and defines a block named "content" where the form content is placed.
+
+The form includes the following input fields:
+- Title: A text input field for the event title.
+- Start Date: A text input field for the event start date.
+- End Date: A text input field for the event end date.
+- Location: A text input field for the event location.
+- Hill ID: A select dropdown field for selecting the hill ID associated with the event.
+- Description: A text input field for the event description.
+- Image: A file input field for uploading an image related to the event.
+
+
+The form is submitted to the 'add_event' route using the POST method.
+
+Note: The template expects a variable named 'hills' to be passed to it, which is used to populate the options in the 'hill_id' select dropdown.
+
+-->
+
+{% extends "index.html" %} {% block content %}
+<h1>Add Event</h1>
+<form
+  action=""
+  method="post"
+  action="{{ url_for(
+    'add_event',
+)}}"
+>
+  <div class="input-field">
+    <input type="text" name="title" id="title" required />
+    <label for="name">Title</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="start_date" id="start_date" required class="datepicker"/>
+    <label for="start_date">Start Date</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="end_date" id="end_date" required class="datepicker"/>
+    <label for="end_date">End Date</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="location" id="location" required />
+    <label for="location">Location</label>
+  </div>
+  <div class="input-field">
+    <select name="hill_id" id="hill_id">
+      <option value="" disabled selected>Select Hill</option>
+      {% for hill in hills %}
+      <option value="{{ hill.id }}">{{ hill.name }}</option>
+      {% endfor %}
+    </select>
+    </div>
+  <div class="input-field">
+    <input type="text" name="description" id="description" required />
+    <label for="description">Description</label>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Image</span>
+      <input type="file" name="image" id="image" />
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" />
+    </div>
+  </div>
+
+  <button class="btn">Add event</button>
+</form>
+{% endblock %}

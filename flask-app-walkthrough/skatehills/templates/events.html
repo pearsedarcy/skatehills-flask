@@ -1,18 +1,45 @@
 {% extends "index.html" %} {% block content %}
 <h1>Events</h1>
-<ul class="collection">
-  {{% for event in events %}}
-  <li class="collection-item">
-    <div>
-      {{ event.name }}
-      <a
-        href="{{ url_for('event', event_id=event.id) }}"
-        class="secondary-content"
-        ><i class="material-icons">send</i></a
-      >
-    </div>
-  </li>
-  {% endfor %}
-</ul>
 
-{% endblock %}
+{% for event in events|sort(attribute='start_date') %}
+<div class="col s12 m7">
+  <div class="card">
+    <div class="card-image">
+      <!-- Add content here -->
+      <img src="{{ url_for('static', filename='images') }}" />
+    </div>
+    <div class="card-content">
+      <span class="card-title">
+        <!-- Add content here -->
+        {{ event.title }}
+      </span>
+      <p>
+        <!-- Add content here -->
+        {{ event.location }}
+      </p>
+      <p>
+        <!-- Add content here -->
+        {{ event.start_date }}
+      </p>
+      <p>
+        <!-- Add content here -->
+        {{ event.end_date }}
+      </p>
+      <p>
+        <!-- Add content here -->
+        {{ event.description }}
+      </p>
+    </div>
+    <a
+      href="{{ url_for('edit_event', id=event.id)  }}"
+      class="btn green accent-4"
+      >Edit</a
+    >
+    <a
+      href="{{ url_for('delete_event', id=event.id)  }}"
+      class="btn red accent-4"
+      >Delete</a
+    >
+  </div>
+</div>
+{% endfor %} {% endblock %}

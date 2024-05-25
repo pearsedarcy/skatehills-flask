@@ -27,19 +27,18 @@
     <header>
       <nav>
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Skate Hills</a>
+          <a href="/" class="brand-logo">Skate Hills</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"
             ><i class="material-icons">menu</i></a
           >
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('events')}}">Events</a></li>
-            <li><a href="">Add Event</a></li>
+            <li><a href="{{ url_for('add_event')}}">Add Event</a></li>
             <li><a href="{{ url_for('hills')}}">Hills</a></li>
             <li><a href="{{ url_for('add_hills')}}">Add Hill</a></li>
             <li>
               <a
                 class="dark-toggle"
-                href="#"
                 onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')"
                 title="Dark/light"
                 ><i class="material-icons left">brightness_4</i>Dark Mode</a
@@ -51,14 +50,13 @@
 
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('events')}}">Events</a></li>
-        <li><a href="">Add Event</a></li>
+        <li><a href="{{url_for('add_event')}}">Add Event</a></li>
         <li><a href="{{ url_for('hills')}}">Hills</a></li>
         <li><a href="{{ url_for('add_hills')}}">Add Hill</a></li>
         <!-- CODE PEN FROM: https://codepen.io/j_holtslander/pen/MRbpLX -->
         <li>
           <a
             class="dark-toggle"
-            href="#"
             onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')"
             title="Dark/light"
             ><i class="material-icons left">brightness_4</i>Dark Mode</a

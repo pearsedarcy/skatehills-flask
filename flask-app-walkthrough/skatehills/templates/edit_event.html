@@ -1,0 +1,46 @@
+{% extends "index.html" %} {% block content %}
+<h1>Edit {{ event.title }}</h1>
+<form
+  method="post"
+  action="{{ url_for(
+    'edit_event', id=event.id
+)}}"
+>
+  <div class="input-field">
+    <input type="text" name="title" id="title" required value="{{ event.title }}" />
+    <label for="name">Title</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="start_date" id="start_date" required value="{{ event.start_date }}" class="datepicker"/>
+    <label for="start_date">Start Date</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="end_date" id="end_date" required value="{{ event.end_date }}" class="datepicker"/>
+    <label for="end_date">End Date</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="location" id="location" required value="{{ event.location }}" />
+    <label for="location">Location</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="description" id="description" required value="{{ event.description }}" />
+    <label for="description">Description</label>
+  </div>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Image</span>
+      <input type="file" name="image" id="image" />
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" />
+    </div>
+  </div>
+  <div class="input-field">
+  <select name="hill_id" id="hill_id">
+    {% for hill in hills %}
+    <option value="{{ hill.id }}">{{ hill.name }}</option>
+    {% endfor %}
+  </select>
+  <button class="btn" ><i class="material-icons left">save</i> Save Changes</button>
+</form>
+{% endblock %}
