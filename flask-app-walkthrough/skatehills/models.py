@@ -2,6 +2,22 @@ from skatehills import db
 
 
 class Event(db.Model):
+    """
+    Represents an event in the application.
+
+    Attributes:
+        id (int): The unique identifier of the event.
+        title (str): The title of the event.
+        start_date (str): The start date of the event.
+        end_date (str): The end date of the event.
+        location (str): The location of the event.
+        description (str): The description of the event.
+        image (str): The image URL of the event.
+        hill_id (int): The foreign key referencing the associated hill.
+
+    Relationships:
+        hill (Hill): The associated hill object.
+    """
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
@@ -17,6 +33,21 @@ class Event(db.Model):
 
 
 class Hill(db.Model):
+    """
+    Represents a hill in the application.
+
+    Attributes:
+        id (int): The unique identifier of the hill.
+        name (str): The name of the hill.
+        start_location (str): The starting location of the hill.
+        end_location (str): The ending location of the hill.
+        country (str): The country where the hill is located.
+        image (str): The image URL of the hill.
+
+    Relationships:
+        events (List[Event]): The associated events of the hill.
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     start_location = db.Column(db.String, nullable=False)
@@ -30,6 +61,18 @@ class Hill(db.Model):
 
 
 # class User(db.Model):
+#     """
+#     Represents a user in the application.
+
+#     Attributes:
+#         id (int): The unique identifier of the user.
+#         username (str): The username of the user.
+#         email (str): The email address of the user.
+#         password (str): The password of the user.
+
+#     Relationships:
+#         events (List[Event]): The events created by the user.
+#     """
 
 #     id = db.Column(db.Integer, primary_key=True)
 #     username = db.Column(db.String, nullable=False)
