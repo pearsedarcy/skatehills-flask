@@ -1,15 +1,27 @@
 
 // sidebar nav materialize
 document.addEventListener('DOMContentLoaded', function () {
-    let sidenav = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(sidenav);
+  let sidenav = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(sidenav);
+  
+  let select = document.querySelectorAll('select');
+  M.FormSelect.init(select);
+  
+  let datepicker = document.querySelectorAll('.datepicker');
+  M.Datepicker.init(datepicker, 
+    {
+      format: 'dd/mm/yyyy',
+      showClearBtn: true,
+      i18n: {
+        done: 'Select'
+      }
+    }
+  );
 });
 
 
 // CODE PEN FROM: https://codepen.io/j_holtslander/pen/MRbpLX
-// SIDENAV
-$(document).ready(function(){
-  $('.sidenav').sidenav();
+// SIDENA
 
 
 // SWAP ICON ON CLICK
@@ -23,4 +35,3 @@ $('.dark-toggle').on('click',function(){
 });
 
 
-});
